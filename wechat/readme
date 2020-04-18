@@ -1,0 +1,5 @@
+page:对页面的封装
+driver：对web、android、ios、接口的驱动
+testcase：调用各类page完成业务流程并进行断言
+data：配置文件和数据驱动
+untils：其它便捷的功能封装，可选
