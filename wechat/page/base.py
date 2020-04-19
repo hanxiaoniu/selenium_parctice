@@ -34,12 +34,12 @@ class Testhogwarts:
         #     self.driver = webdriver.Firefox()
         # elif browser == "htmlunit":
         #     self.driver = webdriver.PhantomJS
-        options = Options()
+        options = webdriver.ChromeOptions()
         options.add_argument('--ignore-certificate-errors')
         options.debugger_address = '127.0.0.1:9999'
         self.driver = webdriver.Chrome(options=options)
-        self.driver = webdriver.Chrome()
-        self.driver.get('https://work.weixin.qq.com/wework_admin/frame#index')
+        # self.driver = webdriver.Chrome()
+        # self.driver.get('https://work.weixin.qq.com/wework_admin/frame#index')
         """设置浏览器窗口大小"""
         # self.driver.set_window_size(1440,877)
         self.driver.implicitly_wait(5)

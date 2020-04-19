@@ -4,10 +4,10 @@
 # @Author: chloehan
 # @File  : index.py
 '''企业微信主页，未登录状态。有登录、注册、下载三个功能'''
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from wechat.page.base_page import BasePage
+from wechat.page.login import Login
 from wechat.page.register import Register
 
 
@@ -16,11 +16,13 @@ class Index(BasePage):
 
     def goto_registet(self):
         '''立即注册'''
-        self.driver.find_element(By.LINK_TEXT, '立即注册').click()
-        return Register(self.driver)
+        self._driver.find_element(By.LINK_TEXT, '立即注册').click()
+        return Register(self._driver)
 
-    def login(self):
+    def goto_login(self):
         '''登录'''
+        self._driver.find_element(By.LINK_TEXT, '企业登录').click()
+        return Login(self._driver)
         pass
 
     def downloadAPP(self):
