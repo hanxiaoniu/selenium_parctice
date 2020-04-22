@@ -24,15 +24,20 @@ class BasePage:
                 # index界面会使用，因为无传参
                 self._driver = webdriver.Chrome()
             self._driver.implicitly_wait(3)
-            self._driver.get(self._base_url)
+
         else:
             # Login与Register等需要用，因为有传参
             self._driver = driver
 
-    def find(self,locator):
+        # 每个界面的url传参不一样，需要单独判断是否传了url的值
+        if self._base_url != "":
+            self._driver.get(self._base_url)
+
+    def find(self, locator):
         """封装find_element,locator为定位符"""
         # isinstance()
         self._driver.find_element(*locator)
+
     # def find0(self,by,locator):
     #     """不需要拆箱的封装"""
     #     self._driver.find_element(locator)
