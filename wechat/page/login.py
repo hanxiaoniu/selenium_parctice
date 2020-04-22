@@ -14,5 +14,5 @@ class Login(BasePage):
         pass
 
     def goto_register(self):
-        self._driver.find_element(By.LINK_TEXT, '企业注册').click()
+        self.find((By.LINK_TEXT, '企业注册')).click()
         return Register(self._driver)

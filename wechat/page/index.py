@@ -16,12 +16,12 @@ class Index(BasePage):
 
     def goto_registet(self):
         '''立即注册'''
-        self._driver.find_element(By.LINK_TEXT, '立即注册').click()
+        self.find((By.LINK_TEXT, '立即注册')).click()
         return Register(self._driver)
 
     def goto_login(self):
         '''登录'''
-        self._driver.find_element(By.LINK_TEXT, '企业登录').click()
+        self.find((By.LINK_TEXT, '企业登录')).click()
         return Login(self._driver)
         pass
 

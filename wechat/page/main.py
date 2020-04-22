@@ -4,10 +4,14 @@
 # @Author: chloehan
 # @File  : main.py
 """企业微信首页"""
+from selenium.webdriver.common.by import By
+
+from wechat.page.base_page import BasePage
 from wechat.page.contact import Contact
 
 
-class IndexMain:
+class IndexMain(BasePage):
+    _base_url="https://work.weixin.qq.com/wework_admin/frame#index"
     def download(self):
         '''立即下载'''
         pass
@@ -30,7 +34,11 @@ class IndexMain:
 
     def add_member(self):
         '''添加成员 因只是一个跳转，所以实质返回的是Contact()的功能'''
-        #todo:click
+        #done:click
+        locator=(By.LINK_TEXT,'添加成员')
+        self.find(locator).click()
+        #当遇到问题/bug无法使用原生的find_element时，可以使用js。例如：解决chrome缩放比例不是100%
+        self._driver.execute_script("arguments[0].click();",self.find(locator))
         return Contact()
 
     def import_tel(self):

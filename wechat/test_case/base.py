@@ -35,6 +35,7 @@ class Testhogwarts:
         # elif browser == "htmlunit":
         #     self.driver = webdriver.PhantomJS
         options = webdriver.ChromeOptions()
+        #sudo /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9999
         options.add_argument('--ignore-certificate-errors')
         options.debugger_address = '127.0.0.1:9999'
         self.driver = webdriver.Chrome(options=options)
