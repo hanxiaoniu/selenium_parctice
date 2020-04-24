@@ -9,13 +9,26 @@
 """
 from selenium.webdriver.common.by import By
 
+from wechat.page.base_page import BasePage
 
-class Contact:
-    _add_member_button=(By.ID,'SSSS')
+
+class Contact(BasePage):
+    _add_member_button = (By.ID, 'SSSS')
+
     def add_member(self, data):
         '''添加成员，需传入数据data'''
+        name_locator = (By.NAME, 'username')
+        acctid_locator = (By.NAME, 'acctid')
+        gender_locator = (By.CSS_SELECTOR, '.ww_radio[value="2"]')
+        mobile_locator = (By.NAME, 'mobile')
+        self.find(name_locator).send_keys("chloehan")
+        self.find(acctid_locator).send_keys("chloa")
+        self.find(gender_locator).click()
+        self.find(mobile_locator).send_keys("123412345675")
+        self.find(By.LINK_TEXT, '保存并继续添加').click()
         return self
-    def add_member_error(self,data):
+
+    def add_member_error(self, data):
         return AddMemberPage()
 
     def search(self, data):
@@ -42,14 +55,14 @@ class Contact:
         '''微信邀请'''
         pass
 
-    def add_department(self,data):
+    def add_department(self, data):
         '''添加部门'''
         pass
 
-    def add_tag(self,data):
+    def add_tag(self, data):
         '''添加标签'''
         pass
 
-    def add_company(self,data):
+    def add_company(self, data):
         '''添加互联企业'''
         pass

@@ -11,7 +11,8 @@ from wechat.page.contact import Contact
 
 
 class IndexMain(BasePage):
-    _base_url="https://work.weixin.qq.com/wework_admin/frame#index"
+    _base_url = "https://work.weixin.qq.com/wework_admin/frame#index"
+
     def download(self):
         '''立即下载'''
         pass
@@ -30,16 +31,18 @@ class IndexMain(BasePage):
 
     def get_message(self):
         '''消息'''
-        return ["aaa","bbb"]
+        return ["aaa", "bbb"]
 
     def add_member(self):
         '''添加成员 因只是一个跳转，所以实质返回的是Contact()的功能'''
-        #done:click
-        locator=(By.LINK_TEXT,'添加成员')
+        # done:click
+        locator = (By.LINK_TEXT, '添加成员')
+        self._
         self.find(locator).click()
-        #当遇到问题/bug无法使用原生的find_element时，可以使用js。例如：解决chrome缩放比例不是100%
-        self._driver.execute_script("arguments[0].click();",self.find(locator))
-        return Contact()
+        # 当遇到问题/bug无法使用原生的find_element时，可以使用js。例如：解决chrome缩放比例不是100%
+        self._driver.execute_script("arguments[0].click();", self.find(locator))
+        #复用浏览器
+        return Contact(reuse=True)
 
     def import_tel(self):
         '''导入通讯里'''

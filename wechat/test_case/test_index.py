@@ -12,14 +12,14 @@ class TestIndex:
         self.index = Index()
 
     def test_register(self):
-        self.index.goto_registet().register("霍格沃茨测试学院")
+        self.index.goto_registet().register("小萌鹅")
 
     def test_login(self):
         """如果不在类中返回self，代码比较冗余且难调用driver
         self.index.goto_login()
         login=Login(self.driver)
         """
-        register_page=self.index.goto_login().goto_register().register("测吧")
+        register_page=self.index.goto_login().goto_register().register("chloehanmin")
         assert "请选择" in "|" .join(register_page.get_error_message())
 
 

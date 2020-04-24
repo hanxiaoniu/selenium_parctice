@@ -11,6 +11,10 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 
 class BasePage:
+    # 初始化的值
+    _base_url=""
+    # 原self._driver是隐藏的，放出来方便子类继承
+    _driver=None
     def __init__(self, driver: WebDriver = None, reuse=False):
 
         if driver == None:

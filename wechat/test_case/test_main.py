@@ -12,7 +12,7 @@ class TestMain:
     def test_add_member(self):
         self.main.add_member().add_member("xxx")
         # 导入成员后查看是否返回消息,然后断言
-        assert "aaa" in main.import_user().get_message()
+        assert "aaa" in self.main.import_user().get_message()
 
     def test_import_user(self):
         main.import_user("xxxx.file")
