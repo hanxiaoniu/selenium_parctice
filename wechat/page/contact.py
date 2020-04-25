@@ -24,6 +24,8 @@ class Contact(BasePage):
         self.find(name_locator).send_keys("chloehan")
         self.find(acctid_locator).send_keys("chloa")
         self.find(gender_locator).click()
+        self.find((By.CSS_SELECTOR, ".ww_telInput_zipCode_input")).click()
+        self.find((By.CSS_SELECTOR, 'li[data-value="853"]')).click()
         self.find(mobile_locator).send_keys("123412345675")
         self.find(By.LINK_TEXT, '保存并继续添加').click()
         return self

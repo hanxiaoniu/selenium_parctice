@@ -44,7 +44,7 @@ class BasePage:
 
     # def find0(self,by,locator):
     #     """不需要拆箱的封装"""
-    #     self._driver.find_element(locator)
+    #     self._driver.find_element(by,locator)
 
     def close(self):
         sleep(10)
