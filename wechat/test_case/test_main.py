@@ -21,9 +21,10 @@ class TestMain:
 
     def test_invite_user(self):
         self.main.invite_user()
-        #todo:判断二维码弹窗是否返回正常
+        # todo:判断二维码弹窗是否返回正常
         assert '' in self.main.invite_user()
 
     def test_send_message(self):
-        main.send_message()
-        assert "" in main.get_message()
+        message = self.main.send_message()
+        message.send(app="", message="", group="")
+        assert "contest" in message.get_histroy()

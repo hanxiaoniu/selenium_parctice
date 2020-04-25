@@ -10,7 +10,7 @@ from wechat.page.application import ApplicationMng
 from wechat.page.base_page import BasePage
 from wechat.page.contact import Contact
 from wechat.page.customer import Customer
-from wechat.page.tools import Tools
+from wechat.page.message import Message
 
 
 class IndexMain(BasePage):
@@ -69,11 +69,10 @@ class IndexMain(BasePage):
         return Tools().join_member()
         pass
 
-    def group_sendMessage(self):
+    def send_message(self):
         '''消息群发'''
-        self.find((By.PARTIAL_LINK_TEXT, "消息群发")).click()
-        return Tools().send_message()
-        pass
+        self.find((By.LINK_TEXT, "消息群发")).click()
+        return Message(reuse=True)
 
     def customer_contact(self):
         '''客户联系'''
